@@ -5,9 +5,6 @@ import re
 # Load the English language model
 nlp = spacy.load("en_core_web_sm")
 
-# ------------------------------------------------------------------
-# 1. Function to perform dependency analysis (instead of lexical analysis)
-# ------------------------------------------------------------------
 def dependency_analysis(text):
     """
     Returns a structured overview of tokens and their dependency relations.
@@ -21,22 +18,13 @@ def dependency_analysis(text):
     }
     return analysis
 
-# ------------------------------------------------------------------
-# 2. Function to extract high-attribution tokens from the phrases column
-#    (kept as in your original code)
-# ------------------------------------------------------------------
 def extract_high_attribution_tokens(phrases):
     try:
-        # Match tokens where the score is explicitly marked as 1
         matches = re.findall(r"\(np\.int32\(1\),\s*'([^']*)'\)", phrases)
-        return " ".join(matches)  # Return high-attribution tokens as a string
+        return " ".join(matches) 
     except Exception:
         return ""
 
-# ------------------------------------------------------------------
-# 3. Main script: load your dataset, extract high-attribution tokens,
-#    and run dependency parsing on them
-# ------------------------------------------------------------------
 if __name__ == "__main__":
     # Load the dataset
     df = pd.read_csv("Research question 2/results/kmeans_clustering_analysis.csv")
