@@ -4,11 +4,6 @@ import matplotlib.pyplot as plt
 df = pd.read_csv("Research question 3/results/high_attribution_dependency_analysis_results.csv")
 
 def count_dependency_labels(dep_analysis):
-    """
-    Converts the stored string of dict data into a dictionary,
-    extracts the 'dep_info' list, and counts the occurrences 
-    of each dependency label.
-    """
     try:
         dep_data = eval(dep_analysis)
 
