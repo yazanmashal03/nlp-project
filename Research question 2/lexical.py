@@ -29,9 +29,17 @@ df["high_attrib_continuation_tokens"] = df["continuation_phrases"].apply(extract
 df["high_attrib_prompt_analysis"] = df["high_attrib_prompt_tokens"].apply(lexical_analysis)
 df["high_attrib_continuation_analysis"] = df["high_attrib_continuation_tokens"].apply(lexical_analysis)
 
-df["high_attrib_prompt_analysis"] = df["high_attrib_prompt_analysis"].apply(lambda x: str(x))
-df["high_attrib_continuation_analysis"] = df["high_attrib_continuation_analysis"].apply(lambda x: str(x))
-
 df.to_csv("high_attribution_lexical_analysis_results.csv", index=False)
 
-print("Lexical analysis results for high-attribution tokens saved to 'high_attribution_lexical_analysis_results.csv'.")
+# Extracting tokens into a separate DataFrame
+tokens_data = []
+for index, row in df.iterrows():
+    for token in row["high_attrib_prompt_analysis"]["tokens"]:
+        tokens_data.append({"type": "prompt", "token": token})
+    for token in row["high_attrib_continuation_analysis"]["tokens"]:
+        tokens_data.append({"type": "continuation", "token": token})
+
+tokens_df = pd.DataFrame(tokens_data)
+tokens_df.to_csv("high_attribution_tokens.csv", index=False)
+
+print("Lexical analysis results for high-attribution tokens and separate token CSV saved.")
