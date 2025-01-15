@@ -5,7 +5,7 @@ In recent years, the transformer-based architecture [Vaswani et al., 2023] has s
 
 Despite these breakthroughs, language models (LMs) remain susceptible to generating undesired outputs, particularly inappropriate, offensive, or otherwise harmful responses, which we will collectively refer to in this paper as "toxic" content [Wang et al., n.d.]. Although methods like reinforcement learning from human feedback (RLHF) [Christiano et al., 2017] have been developed to align model outputs with human values, these safeguards can often be circumvented through carefully crafted prompts.
 
-To explore this gap, this paper examines the extent to which LLMs generate toxic content when prompted, as well as the linguistic factors—both lexical and syntactic—that influence the production of such outputs in generative models.
+To explore this gap, this paper (https://drive.google.com/file/d/1aD4txp7KNLjEfj0frm9kXpeo4sIBfiJt/view) examines the extent to which LLMs generate toxic content when prompted, as well as the linguistic factors—both lexical and syntactic—that influence the production of such outputs in generative models.
 
 ## Research Questions
 The research questions that will guide this paper are:
